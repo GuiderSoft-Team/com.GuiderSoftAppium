@@ -48,6 +48,7 @@ public class C02_HesapMakinesi {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel2");
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.0");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        //todo dumpsys window windows | grep -E 'mCurrentFocus'  => appPackage ile appAcvity almamıza yarar
       //*  desiredCapabilities.setCapability("appPackage","io.appium.android.apis");
         desiredCapabilities.setCapability("appPackage","com.duolingo");
        //* desiredCapabilities.setCapability("appActivity","io.appium.android.apis.ApiDemos");

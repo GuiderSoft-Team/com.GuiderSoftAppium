@@ -1,4 +1,4 @@
-package appiumTest.day04;
+package appiumTest.day05;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -12,19 +12,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class C02_Scroll {
+public class C03_RealDevicesTest {
     @Test
-    public void scrollTest() throws MalformedURLException {
+    public void realDevicesTest01() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel3");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "4100312e447491a3");
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6.0.1");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Mehmet\\Desktop\\GuiderSoft Gün Package\\com.GuiderSoftAppium\\src\\app\\apidemos.apk");
         // ! Yukarıdaki path i kendinize göre ayarlayınız.
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http:127.0.0.1:4723/wd/hub"), desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+        driver.findElementsByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Views\"));");
         WebElement views=driver.findElementByAccessibilityId("Views");
         views.click();
 
@@ -34,52 +34,5 @@ public class C02_Scroll {
         driver.findElementByAccessibilityId("WebView2").click();
 
         driver.findElement(By.xpath("//android.view.View[@content-desc=\"i am a link\"]")).click();
-/*
-        curl -u "guidersoft_VpU1gf:gGqzVpZqTg5DkonwStcD"
-         -X POST "https://api-cloud.browserstack.com/app-automate/xcuitest/v2/app"  -F "file=@/path/to/app/file/app-debug.ipa"
-*/
-
     }
 }
- /*
- (new TouchAction(driver))
-  .press(PointOption.point(785, 1700}))
-  .moveTo(PointOption.point(854, 278}))
-  .release()
-  .perform();
-
-(new TouchAction(driver))
-  .press(PointOption.point(851, 1627}))
-  .moveTo(PointOption.point(793, 327}))
-  .release()
-  .perform();
-
-(new TouchAction(driver))
-  .press(PointOption.point(796, 1662}))
-  .moveTo(PointOption.point(811, 336}))
-  .release()
-  .perform();
-  */
-
-
-/*
-(new TouchAction(driver))
-  .press(PointOption.point(822, 1708}))
-  .moveTo(PointOption.point(817, 272}))
-  .release()
-  .perform();
-
-(new TouchAction(driver))
-  .press(PointOption.point(869, 1676}))
-  .moveTo(PointOption.point(869, 327}))
-  .release()
-  .perform();
-
-(new TouchAction(driver))
-  .press(PointOption.point(764, 1648}))
-  .moveTo(PointOption.point(796, 313}))
-  .release()
-  .perform();
-
-
- */
